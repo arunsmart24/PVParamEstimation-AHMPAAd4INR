@@ -134,7 +134,7 @@ for It = 1:MaxIt
         PopPos(MigrationIndex,:) = rand(1, Dim) .* (Up - Low) + Low;
         oppPopPos = Up + Low - PopPos(MigrationIndex,:);
         PopFit(MigrationIndex) = objfunddnr4(PopPos(MigrationIndex,:), dataset, It, MaxIt);
-        oppPopFit = objfunddnr4(oppPopPos, It);
+        oppPopFit = objfunddnr4(oppPopPos, dataset, It, MaxIt);
         if oppPopFit < PopFit(MigrationIndex)
             PopPos(MigrationIndex,:) = oppPopPos;
             PopFit(MigrationIndex) = oppPopFit;
